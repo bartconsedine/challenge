@@ -1,0 +1,35 @@
+<p>
+  <strong>Name:</strong>
+  <%= @applicant.name %>
+</p>
+
+<h2>Colleges</h2>
+<% @applicant.colleges.each do |college| %>
+  <p>
+    <strong>College:</strong>
+    <%= college.college %>
+  </p>
+ 
+  <p>
+    <strong>Score:</strong>
+    <%= college.score %>
+  </p>
+<% end %>
+
+<h2>Add a comment:</h2>
+<%= form_with(model: [@applicant, @applicant.colleges.build], local: true) do |form| %>
+  <p>
+    <%= form.label :college %><br>
+    <%= form.text_field :college %>
+  </p>
+
+  <%= form.hidden_field :id, value: @applicant.id%>
+  <%= @applicant.id %>
+  <p>
+    <%= form.label :score %><br>
+    <%= form.text_field :score %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

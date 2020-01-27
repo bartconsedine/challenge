@@ -1,0 +1,20 @@
+
+<h1>Applicants</h1>
+ 
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th></th>
+  </tr>
+ 
+  <% @applicants.each do |applicant| %>
+    <tr>
+      <td><%= applicant.name %></td>
+      <td><%= link_to 'Show', applicant_path(applicant) %></td>
+    </tr>
+  <% end %>
+
+
+<%= link_to 'New applicant', new_applicant_path %>
+</table>

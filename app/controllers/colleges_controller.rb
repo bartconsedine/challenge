@@ -14,29 +14,39 @@ class CollegesController < ApplicationController
     redirect_to applicant_path(@applicant)
   end
 
+#   def index
+#     # @colleges = College.all.joins(:applicant_id)
+
+#     # puts @colleges
+#     # render json: @colleges
+
+#     @colleges = College.all
+
+#     # puts @colleges.inspect
+
+#     @finalOutput = {}
+
+#     def allColleges
+#       @colleges.each_with_index do |e, index|
+#         # puts e.applicant_id
+#         newClass = AppCol.new(e.applicant_id, e.applicant_id)
+#         @finalOutput[index] = newClass
+
+#         puts @finalOutput
+#       end
+#     end
+
+#     puts @finalOutput
+
+#     render json: allColleges
+#   end
+
   def index
-    # @colleges = College.all.joins(:applicant_id)
-
-    # puts @colleges
-    # render json: @colleges
-
+    # @collegeJoin = College.joins(applicant)
     @colleges = College.all
 
-    # puts @colleges.inspect
 
-    $finalOutput = {}
-
-    def allColleges
-      @colleges.each_with_index do |e,index|
-        # puts e.applicant_id
-        newClass = AppCol.new(e.applicant_id,e.applicant_id)
-        $finalOutput[index]=newClass
-
-      end
-    end
-    puts $finalOutput
-
-    render json: allColleges
+    render json: @colleges
   end
 
   def show

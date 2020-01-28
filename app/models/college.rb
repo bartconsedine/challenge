@@ -1,5 +1,5 @@
 class College < ApplicationRecord
-  has_many :applicants
+  has_and_belongs_to_many :applicants
   extend FriendlyId
-  friendly_id :name, use: :slugged
+  friendly_id :college, use: :slugged
 end

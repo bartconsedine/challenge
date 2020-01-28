@@ -9,9 +9,13 @@ class CollegesController < ApplicationController
 
   def create
     puts params
-    @applicant = Applicant.find(params[:applicant_id])
-    @college = @applicant.colleges.create(college_params)
-    redirect_to applicant_path(@applicant)
+    # @applicant = Applicant.find(params[:slug])
+    @applicant = Applicant.friendly.find(params[:applicant_id])
+    @college = @applicant.colleges.build(college_params)
+    if @college.save
+        redirect_to applicant_path(@applicant)
+    end
+    
   end
 
 #   def index
@@ -42,9 +46,10 @@ class CollegesController < ApplicationController
 #   end
 
   def index
-    puts College.joins(:applicants).to_sql
+    @colleges =  College.all.includes(:applicants)
+    # @colleges =  College.all
     # @collegeJoin = College.joins(:applicant)
-    @colleges = College.all
+    # = College.all
 
 
     render json: @colleges
@@ -52,6 +57,7 @@ class CollegesController < ApplicationController
 
   def show
     @colleges = College.friendly.find(params[:id])
+    render json: @colleges
   end
 
   private

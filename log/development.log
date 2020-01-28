@@ -11826,3 +11826,1262 @@ Processing by CollegesController#index as HTML
 Completed 200 OK in 50ms (Views: 8.5ms | ActiveRecord: 0.8ms)
 
 
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "applicants"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "applicants" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "slug" varchar)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_applicants_on_slug" ON "applicants" ("slug")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "colleges"[0m
+  ↳ db/schema.rb:23
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "colleges" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "college" varchar, "score" integer, "applicant_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:23
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX "index_colleges_on_applicant_id" ON "colleges" ("applicant_id")[0m
+  ↳ db/schema.rb:23
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "friendly_id_slugs"[0m
+  ↳ db/schema.rb:32
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "friendly_id_slugs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "slug" varchar NOT NULL, "sluggable_id" integer NOT NULL, "sluggable_type" varchar(50), "scope" varchar, "created_at" datetime)[0m
+  ↳ db/schema.rb:32
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope" ON "friendly_id_slugs" ("slug", "sluggable_type", "scope")[0m
+  ↳ db/schema.rb:32
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX "index_friendly_id_slugs_on_slug_and_sluggable_type" ON "friendly_id_slugs" ("slug", "sluggable_type")[0m
+  ↳ db/schema.rb:32
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id" ON "friendly_id_slugs" ("sluggable_type", "sluggable_id")[0m
+  ↳ db/schema.rb:32
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200127204539)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200127144951),
+(20200127134142),
+(20200127204528);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-01-28 01:20:22.596634"], ["updated_at", "2020-01-28 01:20:22.596634"]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "applicants"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "applicants" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "slug" varchar)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_applicants_on_slug" ON "applicants" ("slug")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "colleges"[0m
+  ↳ db/schema.rb:23
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "colleges" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "college" varchar, "score" integer, "applicant_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:23
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX "index_colleges_on_applicant_id" ON "colleges" ("applicant_id")[0m
+  ↳ db/schema.rb:23
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "friendly_id_slugs"[0m
+  ↳ db/schema.rb:32
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "friendly_id_slugs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "slug" varchar NOT NULL, "sluggable_id" integer NOT NULL, "sluggable_type" varchar(50), "scope" varchar, "created_at" datetime)[0m
+  ↳ db/schema.rb:32
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope" ON "friendly_id_slugs" ("slug", "sluggable_type", "scope")[0m
+  ↳ db/schema.rb:32
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX "index_friendly_id_slugs_on_slug_and_sluggable_type" ON "friendly_id_slugs" ("slug", "sluggable_type")[0m
+  ↳ db/schema.rb:32
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id" ON "friendly_id_slugs" ("sluggable_type", "sluggable_id")[0m
+  ↳ db/schema.rb:32
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200127204539)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200127144951),
+(20200127134142),
+(20200127204528);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-01-28 01:20:22.662546"], ["updated_at", "2020-01-28 01:20:22.662546"]]
+  ↳ db/schema.rb:13
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2020-01-28 01:20:22.668098"], ["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddSlugToColleges (20200128014302)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "colleges" ADD "slug" varchar[0m
+  ↳ db/migrate/20200128014302_add_slug_to_colleges.rb:3
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20200128014302_add_slug_to_colleges.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_colleges_on_slug" ON "colleges" ("slug")[0m
+  ↳ db/migrate/20200128014302_add_slug_to_colleges.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200128014302"]]
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/applicants/corey" for ::1 at 2020-01-27 20:43:53 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by ApplicantsController#show as HTML
+  Parameters: {"id"=>"corey"}
+  [1m[36mApplicant Load (0.2ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" WHERE "applicants"."slug" = ? LIMIT ?[0m  [["slug", "corey"], ["LIMIT", 1]]
+  ↳ app/controllers/applicants_controller.rb:38
+  Rendering applicants/show.html.erb within layouts/application
+  [1m[36mCollege Load (0.2ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges" WHERE "colleges"."applicant_id" = ?[0m  [["applicant_id", 1]]
+  ↳ app/views/applicants/show.html.erb:8
+  Rendered applicants/show.html.erb within layouts/application (16.9ms)
+Completed 200 OK in 295ms (Views: 267.8ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/applicants/corey/colleges" for ::1 at 2020-01-27 20:43:56 -0500
+Processing by CollegesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ICHfxZoCDD0nFMIo7o1iSK8b5KV1KFbjFxyRmTd4GbweVPD9zhWGg+dJJ4BFqFxuui/9ruq+I0sGm0ZzKZHs3g==", "college"=>{"college"=>"Subway", "id"=>"1", "score"=>"10"}, "commit"=>"Create College", "applicant_id"=>"corey"}
+  [1m[36mApplicant Load (0.2ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" WHERE "applicants"."slug" = ? LIMIT ?[0m  [["slug", "corey"], ["LIMIT", 1]]
+  ↳ app/controllers/colleges_controller.rb:13
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/colleges_controller.rb:15
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/colleges_controller.rb:15
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.3ms)
+
+
+
+NoMethodError - undefined method `name' for #<College:0x00007fc220c4a650>:
+  app/controllers/colleges_controller.rb:15:in `create'
+
+Started POST "/__better_errors/914e65de776b6fb7/variables" for ::1 at 2020-01-27 20:43:57 -0500
+Started POST "/__better_errors/914e65de776b6fb7/eval" for ::1 at 2020-01-27 20:45:33 -0500
+Started POST "/__better_errors/914e65de776b6fb7/eval" for ::1 at 2020-01-27 20:45:36 -0500
+Started POST "/applicants/corey/colleges" for ::1 at 2020-01-27 20:45:55 -0500
+Processing by CollegesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ICHfxZoCDD0nFMIo7o1iSK8b5KV1KFbjFxyRmTd4GbweVPD9zhWGg+dJJ4BFqFxuui/9ruq+I0sGm0ZzKZHs3g==", "college"=>{"college"=>"Subway", "id"=>"1", "score"=>"10"}, "commit"=>"Create College", "applicant_id"=>"corey"}
+  [1m[36mApplicant Load (0.1ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" WHERE "applicants"."slug" = ? LIMIT ?[0m  [["slug", "corey"], ["LIMIT", 1]]
+  ↳ app/controllers/colleges_controller.rb:13
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/colleges_controller.rb:15
+  [1m[36mCollege Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "colleges" WHERE "colleges"."id" IS NOT NULL AND "colleges"."slug" = ? LIMIT ?[0m  [["slug", "subway"], ["LIMIT", 1]]
+  ↳ app/controllers/colleges_controller.rb:15
+  [1m[36mCollege Create (0.5ms)[0m  [1m[32mINSERT INTO "colleges" ("college", "score", "applicant_id", "created_at", "updated_at", "slug") VALUES (?, ?, ?, ?, ?, ?)[0m  [["college", "Subway"], ["score", 10], ["applicant_id", 1], ["created_at", "2020-01-28 01:45:55.946011"], ["updated_at", "2020-01-28 01:45:55.946011"], ["slug", "subway"]]
+  ↳ app/controllers/colleges_controller.rb:15
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/colleges_controller.rb:15
+Redirected to http://localhost:3000/applicants/corey
+Completed 302 Found in 117ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/applicants/corey" for ::1 at 2020-01-27 20:45:55 -0500
+Processing by ApplicantsController#show as HTML
+  Parameters: {"id"=>"corey"}
+  [1m[36mApplicant Load (0.2ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" WHERE "applicants"."slug" = ? LIMIT ?[0m  [["slug", "corey"], ["LIMIT", 1]]
+  ↳ app/controllers/applicants_controller.rb:38
+  Rendering applicants/show.html.erb within layouts/application
+  [1m[36mCollege Load (0.2ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges" WHERE "colleges"."applicant_id" = ?[0m  [["applicant_id", 1]]
+  ↳ app/views/applicants/show.html.erb:8
+  Rendered applicants/show.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 52ms (Views: 48.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/applicants/corey" for ::1 at 2020-01-27 20:45:57 -0500
+Processing by ApplicantsController#show as HTML
+  Parameters: {"id"=>"corey"}
+  [1m[36mApplicant Load (0.2ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" WHERE "applicants"."slug" = ? LIMIT ?[0m  [["slug", "corey"], ["LIMIT", 1]]
+  ↳ app/controllers/applicants_controller.rb:38
+  Rendering applicants/show.html.erb within layouts/application
+  [1m[36mCollege Load (0.1ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges" WHERE "colleges"."applicant_id" = ?[0m  [["applicant_id", 1]]
+  ↳ app/views/applicants/show.html.erb:8
+  Rendered applicants/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 52ms (Views: 47.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/applicants/corey/colleges" for ::1 at 2020-01-27 20:46:00 -0500
+Processing by CollegesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"l2pa+jRYqENj4QNc3AhQ+A3CsTf53pmbqnAbhbM02CKpH3XCYE8i/aO85vR3LW7eGPaoPGZI7DO798xvrd0tQA==", "college"=>{"college"=>"Subway", "id"=>"1", "score"=>"20"}, "commit"=>"Create College", "applicant_id"=>"corey"}
+  [1m[36mApplicant Load (0.2ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" WHERE "applicants"."slug" = ? LIMIT ?[0m  [["slug", "corey"], ["LIMIT", 1]]
+  ↳ app/controllers/colleges_controller.rb:13
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/colleges_controller.rb:15
+  [1m[36mCollege Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "colleges" WHERE "colleges"."id" IS NOT NULL AND "colleges"."slug" = ? LIMIT ?[0m  [["slug", "subway"], ["LIMIT", 1]]
+  ↳ app/controllers/colleges_controller.rb:15
+  [1m[36mCollege Create (0.6ms)[0m  [1m[32mINSERT INTO "colleges" ("college", "score", "applicant_id", "created_at", "updated_at", "slug") VALUES (?, ?, ?, ?, ?, ?)[0m  [["college", "Subway"], ["score", 20], ["applicant_id", 1], ["created_at", "2020-01-28 01:46:00.075376"], ["updated_at", "2020-01-28 01:46:00.075376"], ["slug", "subway-64c3e626-cca8-46ae-ac04-b177ead17d3d"]]
+  ↳ app/controllers/colleges_controller.rb:15
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/colleges_controller.rb:15
+Redirected to http://localhost:3000/applicants/corey
+Completed 302 Found in 7ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/applicants/corey" for ::1 at 2020-01-27 20:46:00 -0500
+Processing by ApplicantsController#show as HTML
+  Parameters: {"id"=>"corey"}
+  [1m[36mApplicant Load (0.2ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" WHERE "applicants"."slug" = ? LIMIT ?[0m  [["slug", "corey"], ["LIMIT", 1]]
+  ↳ app/controllers/applicants_controller.rb:38
+  Rendering applicants/show.html.erb within layouts/application
+  [1m[36mCollege Load (0.1ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges" WHERE "colleges"."applicant_id" = ?[0m  [["applicant_id", 1]]
+  ↳ app/views/applicants/show.html.erb:8
+  Rendered applicants/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 22ms (Views: 19.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/colleges/" for ::1 at 2020-01-27 20:46:24 -0500
+Processing by CollegesController#index as HTML
+  [1m[36mCollege Load (0.2ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges"[0m
+  ↳ app/controllers/colleges_controller.rb:54
+Completed 200 OK in 12ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/colleges/" for ::1 at 2020-01-27 20:47:14 -0500
+Processing by CollegesController#index as HTML
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/colleges/" for ::1 at 2020-01-27 20:47:25 -0500
+Processing by CollegesController#index as HTML
+  [1m[36mCollege Load (0.7ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges" INNER JOIN "applicants" ON "applicants"."college_id" = "colleges"."id"[0m
+  ↳ app/controllers/colleges_controller.rb:54
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 1.1ms)
+
+
+
+SQLite3::SQLException - no such column: applicants.college_id:
+  app/controllers/colleges_controller.rb:54:in `index'
+
+Started POST "/__better_errors/f3fe706289e30ad5/variables" for ::1 at 2020-01-27 20:47:25 -0500
+  [1m[36mCollege Load (0.6ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" INNER JOIN "applicants" ON "applicants"."college_id" = "colleges"."id" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCollege Load (0.7ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" INNER JOIN "applicants" ON "applicants"."college_id" = "colleges"."id" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCollege Load (0.6ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" INNER JOIN "applicants" ON "applicants"."college_id" = "colleges"."id" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCollege Load (0.7ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" INNER JOIN "applicants" ON "applicants"."college_id" = "colleges"."id" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Started GET "/colleges/" for ::1 at 2020-01-27 20:48:48 -0500
+Processing by CollegesController#index as HTML
+  [1m[36mCollege Load (0.2ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges"[0m
+  ↳ app/controllers/colleges_controller.rb:55
+Completed 200 OK in 13ms (Views: 9.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/colleges/" for ::1 at 2020-01-27 20:49:36 -0500
+Processing by CollegesController#index as HTML
+  [1m[36mCollege Load (0.2ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges"[0m
+  ↳ app/controllers/colleges_controller.rb:55
+Completed 200 OK in 11ms (Views: 7.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/colleges/" for ::1 at 2020-01-27 20:49:47 -0500
+Processing by CollegesController#index as HTML
+  [1m[36mCollege Load (1.0ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges" INNER JOIN "applicants" ON "applicants"."college_id" = "colleges"."id"[0m
+  ↳ app/controllers/colleges_controller.rb:55
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 1.4ms)
+
+
+
+SQLite3::SQLException - no such column: applicants.college_id:
+  app/controllers/colleges_controller.rb:55:in `index'
+
+Started POST "/__better_errors/465d312895bb92a0/variables" for ::1 at 2020-01-27 20:49:47 -0500
+  [1m[36mCollege Load (0.6ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" INNER JOIN "applicants" ON "applicants"."college_id" = "colleges"."id" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCollege Load (0.7ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" INNER JOIN "applicants" ON "applicants"."college_id" = "colleges"."id" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCollege Load (0.5ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" INNER JOIN "applicants" ON "applicants"."college_id" = "colleges"."id" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCollege Load (0.5ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" INNER JOIN "applicants" ON "applicants"."college_id" = "colleges"."id" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Started GET "/applicant/corey/colleges/" for ::1 at 2020-01-27 20:50:21 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/applicant/corey/colleges"):
+  
+actionpack (5.2.4.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.1) lib/rack/method_override.rb:24:in `call'
+rack (2.1.1) lib/rack/runtime.rb:24:in `call'
+activesupport (5.2.4.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.1.1) lib/rack/sendfile.rb:113:in `call'
+railties (5.2.4.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.2) lib/puma/configuration.rb:227:in `call'
+puma (3.12.2) lib/puma/server.rb:674:in `handle_request'
+puma (3.12.2) lib/puma/server.rb:476:in `process_client'
+puma (3.12.2) lib/puma/server.rb:334:in `block in run'
+puma (3.12.2) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/applicant/corey/colleges/1" for ::1 at 2020-01-27 20:52:17 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/applicant/corey/colleges/1"):
+  
+actionpack (5.2.4.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.1.1) lib/rack/method_override.rb:24:in `call'
+rack (2.1.1) lib/rack/runtime.rb:24:in `call'
+activesupport (5.2.4.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.1.1) lib/rack/sendfile.rb:113:in `call'
+railties (5.2.4.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.2) lib/puma/configuration.rb:227:in `call'
+puma (3.12.2) lib/puma/server.rb:674:in `handle_request'
+puma (3.12.2) lib/puma/server.rb:476:in `process_client'
+puma (3.12.2) lib/puma/server.rb:334:in `block in run'
+puma (3.12.2) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/applicants/corey/colleges/1" for ::1 at 2020-01-27 20:52:34 -0500
+Processing by CollegesController#show as HTML
+  Parameters: {"applicant_id"=>"corey", "id"=>"1"}
+  [1m[36mCollege Load (0.1ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" WHERE "colleges"."slug" = ? LIMIT ?[0m  [["slug", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/colleges_controller.rb:59
+  [1m[36mCollege Load (0.2ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" WHERE "colleges"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/colleges_controller.rb:59
+Completed 406 Not Acceptable in 39ms (ActiveRecord: 0.6ms)
+
+
+
+ActionController::UnknownFormat - CollegesController#show is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.:
+
+Started POST "/__better_errors/46e8e3c7e922c7ae/variables" for ::1 at 2020-01-27 20:52:34 -0500
+Started GET "/applicants/corey/colleges/1" for ::1 at 2020-01-27 20:53:11 -0500
+Processing by CollegesController#show as HTML
+  Parameters: {"applicant_id"=>"corey", "id"=>"1"}
+  [1m[36mCollege Load (0.2ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" WHERE "colleges"."slug" = ? LIMIT ?[0m  [["slug", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/colleges_controller.rb:59
+  [1m[36mCollege Load (0.1ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" WHERE "colleges"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/colleges_controller.rb:59
+Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/colleges/" for ::1 at 2020-01-27 20:53:35 -0500
+Processing by CollegesController#index as HTML
+  [1m[36mCollege Load (0.6ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges" INNER JOIN "applicants" ON "applicants"."college_id" = "colleges"."id"[0m
+  ↳ app/controllers/colleges_controller.rb:55
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.6ms)
+
+
+
+SQLite3::SQLException - no such column: applicants.college_id:
+  app/controllers/colleges_controller.rb:55:in `index'
+
+Started POST "/__better_errors/d2015282f1f72968/variables" for ::1 at 2020-01-27 20:53:36 -0500
+  [1m[36mCollege Load (0.8ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" INNER JOIN "applicants" ON "applicants"."college_id" = "colleges"."id" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCollege Load (0.6ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" INNER JOIN "applicants" ON "applicants"."college_id" = "colleges"."id" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCollege Load (0.9ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" INNER JOIN "applicants" ON "applicants"."college_id" = "colleges"."id" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCollege Load (0.7ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" INNER JOIN "applicants" ON "applicants"."college_id" = "colleges"."id" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Started GET "/colleges/" for ::1 at 2020-01-27 20:54:18 -0500
+Processing by CollegesController#index as HTML
+  [1m[36mCollege Load (0.2ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges"[0m
+  ↳ app/controllers/colleges_controller.rb:55
+  [1m[36mApplicant Load (0.7ms)[0m  [1m[34mSELECT "applicants".* FROM "applicants" WHERE "applicants"."college_id" IN (?, ?)[0m  [["college_id", "1"], ["college_id", "2"]]
+  ↳ app/controllers/colleges_controller.rb:55
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 1.8ms)
+
+
+
+SQLite3::SQLException - no such column: applicants.college_id:
+  app/controllers/colleges_controller.rb:55:in `index'
+
+Started POST "/__better_errors/bfe3e22e1452f365/variables" for ::1 at 2020-01-27 20:54:19 -0500
+  [1m[36mCollege Load (0.2ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mApplicant Load (1.0ms)[0m  [1m[34mSELECT "applicants".* FROM "applicants" WHERE "applicants"."college_id" IN (?, ?)[0m  [["college_id", "1"], ["college_id", "2"]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE College Load (0.0ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mApplicant Load (0.7ms)[0m  [1m[34mSELECT "applicants".* FROM "applicants" WHERE "applicants"."college_id" IN (?, ?)[0m  [["college_id", "1"], ["college_id", "2"]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE College Load (0.0ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mApplicant Load (0.8ms)[0m  [1m[34mSELECT "applicants".* FROM "applicants" WHERE "applicants"."college_id" IN (?, ?)[0m  [["college_id", "1"], ["college_id", "2"]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE College Load (0.0ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mApplicant Load (0.6ms)[0m  [1m[34mSELECT "applicants".* FROM "applicants" WHERE "applicants"."college_id" IN (?, ?)[0m  [["college_id", "1"], ["college_id", "2"]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Started GET "/colleges/" for ::1 at 2020-01-27 20:54:55 -0500
+Processing by CollegesController#index as HTML
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+
+
+TypeError - wrong argument type Symbol (expected Module):
+  app/controllers/colleges_controller.rb:49:in `index'
+
+Started POST "/__better_errors/652b99d93c21ba38/variables" for ::1 at 2020-01-27 20:54:55 -0500
+Started GET "/colleges/" for ::1 at 2020-01-27 20:55:17 -0500
+Processing by CollegesController#index as HTML
+  [1m[36mCollege Load (0.3ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges"[0m
+  ↳ app/controllers/colleges_controller.rb:55
+  [1m[36mApplicant Load (0.9ms)[0m  [1m[34mSELECT "applicants".* FROM "applicants" WHERE "applicants"."college_id" IN (?, ?)[0m  [["college_id", "1"], ["college_id", "2"]]
+  ↳ app/controllers/colleges_controller.rb:55
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 2.2ms)
+
+
+
+SQLite3::SQLException - no such column: applicants.college_id:
+  app/controllers/colleges_controller.rb:55:in `index'
+
+Started POST "/__better_errors/b4cee14640390e72/variables" for ::1 at 2020-01-27 20:55:17 -0500
+  [1m[36mCollege Load (0.2ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mApplicant Load (0.6ms)[0m  [1m[34mSELECT "applicants".* FROM "applicants" WHERE "applicants"."college_id" IN (?, ?)[0m  [["college_id", "1"], ["college_id", "2"]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE College Load (0.0ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mApplicant Load (0.9ms)[0m  [1m[34mSELECT "applicants".* FROM "applicants" WHERE "applicants"."college_id" IN (?, ?)[0m  [["college_id", "1"], ["college_id", "2"]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE College Load (0.0ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mApplicant Load (0.8ms)[0m  [1m[34mSELECT "applicants".* FROM "applicants" WHERE "applicants"."college_id" IN (?, ?)[0m  [["college_id", "1"], ["college_id", "2"]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE College Load (0.0ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mApplicant Load (0.7ms)[0m  [1m[34mSELECT "applicants".* FROM "applicants" WHERE "applicants"."college_id" IN (?, ?)[0m  [["college_id", "1"], ["college_id", "2"]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Started GET "/colleges/" for ::1 at 2020-01-27 20:56:03 -0500
+Processing by CollegesController#index as HTML
+  [1m[36mCollege Load (0.2ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mApplicant Load (0.8ms)[0m  [1m[34mSELECT "applicants".* FROM "applicants" WHERE "applicants"."college_id" IN (?, ?)[0m  [["college_id", "1"], ["college_id", "2"]]
+  ↳ /Users/BC/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mCACHE College Load (0.0ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:4
+  [1m[36mApplicant Load (0.8ms)[0m  [1m[34mSELECT "applicants".* FROM "applicants" WHERE "applicants"."college_id" IN (?, ?)[0m  [["college_id", "1"], ["college_id", "2"]]
+  ↳ /Users/BC/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:4
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.0ms)
+
+
+  [1m[36mCACHE College Load (0.0ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+  [1m[36mApplicant Load (0.6ms)[0m  [1m[34mSELECT "applicants".* FROM "applicants" WHERE "applicants"."college_id" IN (?, ?)[0m  [["college_id", "1"], ["college_id", "2"]]
+  ↳ /Users/BC/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb:8
+
+NameError - undefined local variable or method `applicant_id' for #<CollegesController:0x00007fc22766a1c0>
+Did you mean?  applicant_url:
+  app/controllers/colleges_controller.rb:49:in `index'
+
+Started POST "/__better_errors/39650ca142d4239c/variables" for ::1 at 2020-01-27 20:56:03 -0500
+Started GET "/colleges/" for ::1 at 2020-01-27 20:56:14 -0500
+Processing by CollegesController#index as HTML
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+
+ActiveRecord::ConfigurationError - Can't join 'Applicant' to association named 'applicant_id'; perhaps you misspelled it?:
+  app/controllers/colleges_controller.rb:55:in `index'
+
+Started POST "/__better_errors/ea57869fd868468f/variables" for ::1 at 2020-01-27 20:56:14 -0500
+Started POST "/__better_errors/ea57869fd868468f/variables" for ::1 at 2020-01-27 20:57:54 -0500
+Started GET "/colleges/" for ::1 at 2020-01-27 20:57:56 -0500
+Processing by CollegesController#index as HTML
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.4ms)
+
+
+
+NoMethodError - undefined method `has_many_and_belongs_to' for #<Class:0x00007fc220f06df8>
+Did you mean?  has_and_belongs_to_many:
+  app/models/college.rb:2:in `<class:College>'
+  app/models/college.rb:1:in `<main>'
+  app/controllers/colleges_controller.rb:49:in `index'
+
+Started POST "/__better_errors/a2b037097ae373c6/variables" for ::1 at 2020-01-27 20:57:56 -0500
+Started GET "/colleges/" for ::1 at 2020-01-27 20:58:13 -0500
+Processing by CollegesController#index as HTML
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.5ms)
+
+
+
+NoMethodError - undefined method `has_many_and_belongs_to_many' for #<Class:0x00007fc222f12098>
+Did you mean?  has_and_belongs_to_many:
+  app/models/college.rb:2:in `<class:College>'
+  app/models/college.rb:1:in `<main>'
+  app/controllers/colleges_controller.rb:49:in `index'
+
+Started POST "/__better_errors/2275c186d2d719d3/variables" for ::1 at 2020-01-27 20:58:13 -0500
+Started GET "/colleges/" for ::1 at 2020-01-27 20:58:28 -0500
+Processing by CollegesController#index as HTML
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms)
+
+
+
+ActiveRecord::ConfigurationError - Can't join 'Applicant' to association named 'applicant_id'; perhaps you misspelled it?:
+  app/controllers/colleges_controller.rb:55:in `index'
+
+Started POST "/__better_errors/fccc9f186dbc0539/variables" for ::1 at 2020-01-27 20:58:28 -0500
+Started GET "/colleges/" for ::1 at 2020-01-27 20:58:52 -0500
+Processing by CollegesController#index as HTML
+  [1m[36mCollege Load (0.6ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges" INNER JOIN "applicants_colleges" ON "applicants_colleges"."college_id" = "colleges"."id" INNER JOIN "applicants" ON "applicants"."id" = "applicants_colleges"."applicant_id"[0m
+  ↳ app/controllers/colleges_controller.rb:55
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 1.2ms)
+
+
+
+SQLite3::SQLException - no such table: applicants_colleges:
+  app/controllers/colleges_controller.rb:55:in `index'
+
+Started POST "/__better_errors/5bf89b0918428539/variables" for ::1 at 2020-01-27 20:58:52 -0500
+  [1m[36mCollege Load (0.5ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" INNER JOIN "applicants_colleges" ON "applicants_colleges"."college_id" = "colleges"."id" INNER JOIN "applicants" ON "applicants"."id" = "applicants_colleges"."applicant_id" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCollege Load (0.6ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" INNER JOIN "applicants_colleges" ON "applicants_colleges"."college_id" = "colleges"."id" INNER JOIN "applicants" ON "applicants"."id" = "applicants_colleges"."applicant_id" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCollege Load (0.6ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" INNER JOIN "applicants_colleges" ON "applicants_colleges"."college_id" = "colleges"."id" INNER JOIN "applicants" ON "applicants"."id" = "applicants_colleges"."applicant_id" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCollege Load (0.8ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" INNER JOIN "applicants_colleges" ON "applicants_colleges"."college_id" = "colleges"."id" INNER JOIN "applicants" ON "applicants"."id" = "applicants_colleges"."applicant_id" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Started GET "/colleges/" for ::1 at 2020-01-27 20:59:05 -0500
+Processing by CollegesController#index as HTML
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+
+ActiveRecord::ConfigurationError - Can't join 'College' to association named 'applicant'; perhaps you misspelled it?:
+  app/controllers/colleges_controller.rb:55:in `index'
+
+Started POST "/__better_errors/4fc32079f623f0bf/variables" for ::1 at 2020-01-27 20:59:05 -0500
+Started GET "/colleges/" for ::1 at 2020-01-27 20:59:15 -0500
+Processing by CollegesController#index as HTML
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+
+ActiveRecord::ConfigurationError - Can't join 'College' to association named 'applicant_id'; perhaps you misspelled it?:
+  app/controllers/colleges_controller.rb:55:in `index'
+
+Started POST "/__better_errors/db5ce9d8525efd53/variables" for ::1 at 2020-01-27 20:59:15 -0500
+Started GET "/colleges/" for ::1 at 2020-01-27 21:02:30 -0500
+Processing by CollegesController#index as HTML
+  [1m[36mCollege Load (0.2ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges"[0m
+  ↳ app/controllers/colleges_controller.rb:55
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.8ms)
+
+
+
+ActiveRecord::AssociationNotFoundError - Association named 'applicant' was not found on College; perhaps you misspelled it?:
+  app/controllers/colleges_controller.rb:55:in `index'
+
+Started POST "/__better_errors/0a2a896deff3b49b/variables" for ::1 at 2020-01-27 21:02:30 -0500
+  [1m[36mCollege Load (0.2ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE College Load (0.0ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE College Load (0.0ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE College Load (0.0ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Started GET "/colleges/" for ::1 at 2020-01-27 21:02:37 -0500
+Processing by CollegesController#index as HTML
+  [1m[36mCollege Load (0.1ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges"[0m
+  ↳ app/controllers/colleges_controller.rb:55
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms)
+
+
+
+ActiveRecord::AssociationNotFoundError - Association named 'applicant' was not found on College; perhaps you misspelled it?:
+  app/controllers/colleges_controller.rb:55:in `index'
+
+Started POST "/__better_errors/84f8e09500479534/variables" for ::1 at 2020-01-27 21:02:37 -0500
+  [1m[36mCollege Load (0.2ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE College Load (0.0ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE College Load (0.0ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE College Load (0.0ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Started GET "/colleges/" for ::1 at 2020-01-27 21:02:45 -0500
+Processing by CollegesController#index as HTML
+  [1m[36mCollege Load (0.2ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges"[0m
+  ↳ app/controllers/colleges_controller.rb:55
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.9ms)
+
+
+
+ActiveRecord::StatementInvalid - Could not find table 'applicants_colleges':
+  app/controllers/colleges_controller.rb:55:in `index'
+
+Started POST "/__better_errors/1debd76514a69cc4/variables" for ::1 at 2020-01-27 21:02:45 -0500
+  [1m[36mCollege Load (0.2ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE College Load (0.0ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE College Load (0.0ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE College Load (0.0ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Started GET "/colleges/" for ::1 at 2020-01-27 21:03:08 -0500
+Processing by CollegesController#index as HTML
+  [1m[36mApplicant Load (0.2ms)[0m  [1m[34mSELECT "applicants".* FROM "applicants"[0m
+  ↳ app/controllers/colleges_controller.rb:55
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.9ms)
+
+
+
+ActiveRecord::StatementInvalid - Could not find table 'applicants_colleges':
+  app/controllers/colleges_controller.rb:55:in `index'
+
+Started POST "/__better_errors/089780a362b28e3a/variables" for ::1 at 2020-01-27 21:03:08 -0500
+  [1m[36mApplicant Load (0.2ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Applicant Load (0.0ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Applicant Load (0.0ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Applicant Load (0.0ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Started GET "/colleges/" for ::1 at 2020-01-27 21:03:15 -0500
+Processing by CollegesController#index as HTML
+  [1m[36mApplicant Load (0.1ms)[0m  [1m[34mSELECT "applicants".* FROM "applicants"[0m
+  ↳ app/controllers/colleges_controller.rb:55
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.2ms)
+
+
+
+ActiveRecord::StatementInvalid - Could not find table 'applicants_colleges':
+  app/controllers/colleges_controller.rb:55:in `index'
+
+Started POST "/__better_errors/81858fe8e963ead7/variables" for ::1 at 2020-01-27 21:03:15 -0500
+  [1m[36mApplicant Load (0.2ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Applicant Load (0.0ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Applicant Load (0.0ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Applicant Load (0.0ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Started GET "/colleges/" for ::1 at 2020-01-27 21:03:17 -0500
+Processing by CollegesController#index as HTML
+  [1m[36mApplicant Load (0.1ms)[0m  [1m[34mSELECT "applicants".* FROM "applicants"[0m
+  ↳ app/controllers/colleges_controller.rb:55
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.2ms)
+
+
+
+ActiveRecord::StatementInvalid - Could not find table 'applicants_colleges':
+  app/controllers/colleges_controller.rb:55:in `index'
+
+Started POST "/__better_errors/f4d7ef737c1ffff1/variables" for ::1 at 2020-01-27 21:03:17 -0500
+  [1m[36mApplicant Load (0.2ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Applicant Load (0.0ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Applicant Load (0.0ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Applicant Load (0.0ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Started GET "/colleges/" for ::1 at 2020-01-27 21:03:20 -0500
+Processing by CollegesController#index as HTML
+  [1m[36mCollege Load (0.2ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges"[0m
+  ↳ app/controllers/colleges_controller.rb:55
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.8ms)
+
+
+
+ActiveRecord::StatementInvalid - Could not find table 'applicants_colleges':
+  app/controllers/colleges_controller.rb:55:in `index'
+
+Started POST "/__better_errors/252297b572ac2c85/variables" for ::1 at 2020-01-27 21:03:21 -0500
+  [1m[36mCollege Load (0.2ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE College Load (0.0ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE College Load (0.0ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE College Load (0.0ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Started GET "/colleges/" for ::1 at 2020-01-27 21:03:22 -0500
+Processing by CollegesController#index as HTML
+  [1m[36mCollege Load (0.2ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges"[0m
+  ↳ app/controllers/colleges_controller.rb:55
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.3ms)
+
+
+
+ActiveRecord::StatementInvalid - Could not find table 'applicants_colleges':
+  app/controllers/colleges_controller.rb:55:in `index'
+
+Started POST "/__better_errors/98a6d6b4cdf8b834/variables" for ::1 at 2020-01-27 21:03:22 -0500
+  [1m[36mCollege Load (0.2ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE College Load (0.0ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE College Load (0.0ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE College Load (0.0ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Started POST "/__better_errors/98a6d6b4cdf8b834/eval" for ::1 at 2020-01-27 21:04:39 -0500
+Started POST "/__better_errors/98a6d6b4cdf8b834/eval" for ::1 at 2020-01-27 21:04:45 -0500
+  [1m[36mCollege Load (0.2ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Started POST "/__better_errors/98a6d6b4cdf8b834/eval" for ::1 at 2020-01-27 21:04:57 -0500
+  [1m[36mCollege Load (0.2ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Started POST "/__better_errors/98a6d6b4cdf8b834/eval" for ::1 at 2020-01-27 21:05:19 -0500
+Started POST "/__better_errors/98a6d6b4cdf8b834/eval" for ::1 at 2020-01-27 21:05:25 -0500
+  [1m[36mCollege Load (0.2ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Started POST "/__better_errors/98a6d6b4cdf8b834/eval" for ::1 at 2020-01-27 21:05:37 -0500
+  [1m[36mCollege Load (0.2ms)[0m  [1m[34mSELECT  "colleges".* FROM "colleges" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateJoinTableCollegeApplicant (20200128032744)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20200128032744_create_join_table_college_applicant.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "applicants_colleges" ("college_id" integer NOT NULL, "applicant_id" integer NOT NULL)[0m
+  ↳ db/migrate/20200128032744_create_join_table_college_applicant.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200128032744"]]
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/colleges/" for ::1 at 2020-01-27 22:28:13 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/BC/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by CollegesController#index as HTML
+  [1m[36mCollege Load (0.4ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges"[0m
+  ↳ app/controllers/colleges_controller.rb:55
+  [1m[36mHABTM_Applicants Load (0.1ms)[0m  [1m[34mSELECT "applicants_colleges".* FROM "applicants_colleges" WHERE "applicants_colleges"."college_id" IN (?, ?)[0m  [["college_id", 1], ["college_id", 2]]
+  ↳ app/controllers/colleges_controller.rb:55
+Completed 200 OK in 45ms (Views: 25.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/colleges/" for ::1 at 2020-01-27 22:28:16 -0500
+Processing by CollegesController#index as HTML
+  [1m[36mCollege Load (0.1ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges"[0m
+  ↳ app/controllers/colleges_controller.rb:55
+  [1m[36mHABTM_Applicants Load (0.2ms)[0m  [1m[34mSELECT "applicants_colleges".* FROM "applicants_colleges" WHERE "applicants_colleges"."college_id" IN (?, ?)[0m  [["college_id", 1], ["college_id", 2]]
+  ↳ app/controllers/colleges_controller.rb:55
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/colleges/" for ::1 at 2020-01-27 22:28:25 -0500
+Processing by CollegesController#index as HTML
+  [1m[36mCollege Load (0.1ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges"[0m
+  ↳ app/controllers/colleges_controller.rb:55
+  [1m[36mHABTM_Applicants Load (0.1ms)[0m  [1m[34mSELECT "applicants_colleges".* FROM "applicants_colleges" WHERE "applicants_colleges"."college_id" IN (?, ?)[0m  [["college_id", 1], ["college_id", 2]]
+  ↳ app/controllers/colleges_controller.rb:55
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/applicants" for ::1 at 2020-01-27 22:28:29 -0500
+Processing by ApplicantsController#index as HTML
+  Rendering applicants/index.html.erb within layouts/application
+  [1m[36mApplicant Load (0.4ms)[0m  [1m[34mSELECT "applicants".* FROM "applicants"[0m
+  ↳ app/views/applicants/index.html.erb:11
+  Rendered applicants/index.html.erb within layouts/application (22.3ms)
+Completed 200 OK in 272ms (Views: 269.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/applicants/corey" for ::1 at 2020-01-27 22:28:31 -0500
+Processing by ApplicantsController#show as HTML
+  Parameters: {"id"=>"corey"}
+  [1m[36mApplicant Load (0.6ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" WHERE "applicants"."slug" = ? LIMIT ?[0m  [["slug", "corey"], ["LIMIT", 1]]
+  ↳ app/controllers/applicants_controller.rb:38
+  Rendering applicants/show.html.erb within layouts/application
+  [1m[36mCollege Load (0.2ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges" INNER JOIN "applicants_colleges" ON "colleges"."id" = "applicants_colleges"."college_id" WHERE "applicants_colleges"."applicant_id" = ?[0m  [["applicant_id", 1]]
+  ↳ app/views/applicants/show.html.erb:8
+  Rendered applicants/show.html.erb within layouts/application (18.7ms)
+Completed 200 OK in 45ms (Views: 36.9ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/applicants/corey/colleges" for ::1 at 2020-01-27 22:28:37 -0500
+Processing by CollegesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2m6lauTmxXmCXhKdvuZ1F3RYvSiTXPcVSoZn3W6H0vD+F5GwLT13FwPYfYBpw4+Be8LWPftrUcvYuYs3qD1pTw==", "college"=>{"college"=>"asdf", "id"=>"1", "score"=>"10"}, "commit"=>"Create College", "applicant_id"=>"corey"}
+  [1m[36mApplicant Load (0.2ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" WHERE "applicants"."slug" = ? LIMIT ?[0m  [["slug", "corey"], ["LIMIT", 1]]
+  ↳ app/controllers/colleges_controller.rb:13
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/colleges_controller.rb:15
+  [1m[36mCollege Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "colleges" WHERE "colleges"."id" IS NOT NULL AND "colleges"."slug" = ? LIMIT ?[0m  [["slug", "asdf"], ["LIMIT", 1]]
+  ↳ app/controllers/colleges_controller.rb:15
+  [1m[36mCollege Create (1.2ms)[0m  [1m[32mINSERT INTO "colleges" ("college", "score", "created_at", "updated_at", "slug") VALUES (?, ?, ?, ?, ?)[0m  [["college", "asdf"], ["score", 10], ["created_at", "2020-01-28 03:28:37.300648"], ["updated_at", "2020-01-28 03:28:37.300648"], ["slug", "asdf"]]
+  ↳ app/controllers/colleges_controller.rb:15
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/colleges_controller.rb:15
+Redirected to http://localhost:3000/applicants/corey
+Completed 302 Found in 75ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/applicants/corey" for ::1 at 2020-01-27 22:28:37 -0500
+Processing by ApplicantsController#show as HTML
+  Parameters: {"id"=>"corey"}
+  [1m[36mApplicant Load (0.1ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" WHERE "applicants"."slug" = ? LIMIT ?[0m  [["slug", "corey"], ["LIMIT", 1]]
+  ↳ app/controllers/applicants_controller.rb:38
+  Rendering applicants/show.html.erb within layouts/application
+  [1m[36mCollege Load (0.1ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges" INNER JOIN "applicants_colleges" ON "colleges"."id" = "applicants_colleges"."college_id" WHERE "applicants_colleges"."applicant_id" = ?[0m  [["applicant_id", 1]]
+  ↳ app/views/applicants/show.html.erb:8
+  Rendered applicants/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 22ms (Views: 19.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/applicants/corey" for ::1 at 2020-01-27 22:28:39 -0500
+Processing by ApplicantsController#show as HTML
+  Parameters: {"id"=>"corey"}
+  [1m[36mApplicant Load (0.1ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" WHERE "applicants"."slug" = ? LIMIT ?[0m  [["slug", "corey"], ["LIMIT", 1]]
+  ↳ app/controllers/applicants_controller.rb:38
+  Rendering applicants/show.html.erb within layouts/application
+  [1m[36mCollege Load (0.1ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges" INNER JOIN "applicants_colleges" ON "colleges"."id" = "applicants_colleges"."college_id" WHERE "applicants_colleges"."applicant_id" = ?[0m  [["applicant_id", 1]]
+  ↳ app/views/applicants/show.html.erb:8
+  Rendered applicants/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 23ms (Views: 20.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/applicants/corey" for ::1 at 2020-01-27 22:29:14 -0500
+Processing by ApplicantsController#show as HTML
+  Parameters: {"id"=>"corey"}
+  [1m[36mApplicant Load (0.2ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" WHERE "applicants"."slug" = ? LIMIT ?[0m  [["slug", "corey"], ["LIMIT", 1]]
+  ↳ app/controllers/applicants_controller.rb:38
+  Rendering applicants/show.html.erb within layouts/application
+  [1m[36mCollege Load (0.1ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges" INNER JOIN "applicants_colleges" ON "colleges"."id" = "applicants_colleges"."college_id" WHERE "applicants_colleges"."applicant_id" = ?[0m  [["applicant_id", 1]]
+  ↳ app/views/applicants/show.html.erb:8
+  Rendered applicants/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 24ms (Views: 20.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/applicants/corey/colleges" for ::1 at 2020-01-27 22:29:22 -0500
+Processing by CollegesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k2vrtgFZRYgBmxAHaqli0IMDxxbRaWC30fEPClXlwD+tHsSOVU7PNsHG9a/BjFz2ljfeHU7/FR/AdtjgSww1XQ==", "college"=>{"college"=>"Subway", "id"=>"1", "score"=>"5"}, "commit"=>"Create College", "applicant_id"=>"corey"}
+  [1m[36mApplicant Load (0.2ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" WHERE "applicants"."slug" = ? LIMIT ?[0m  [["slug", "corey"], ["LIMIT", 1]]
+  ↳ app/controllers/colleges_controller.rb:13
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/colleges_controller.rb:15
+  [1m[36mCollege Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "colleges" WHERE "colleges"."id" IS NOT NULL AND "colleges"."slug" = ? LIMIT ?[0m  [["slug", "subway"], ["LIMIT", 1]]
+  ↳ app/controllers/colleges_controller.rb:15
+  [1m[36mCollege Create (0.5ms)[0m  [1m[32mINSERT INTO "colleges" ("college", "score", "created_at", "updated_at", "slug") VALUES (?, ?, ?, ?, ?)[0m  [["college", "Subway"], ["score", 5], ["created_at", "2020-01-28 03:29:22.867281"], ["updated_at", "2020-01-28 03:29:22.867281"], ["slug", "subway-ace8143d-e195-4b08-b02f-fdcec4381c7d"]]
+  ↳ app/controllers/colleges_controller.rb:15
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/colleges_controller.rb:15
+Redirected to http://localhost:3000/applicants/corey
+Completed 302 Found in 8ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/applicants/corey" for ::1 at 2020-01-27 22:29:22 -0500
+Processing by ApplicantsController#show as HTML
+  Parameters: {"id"=>"corey"}
+  [1m[36mApplicant Load (0.2ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" WHERE "applicants"."slug" = ? LIMIT ?[0m  [["slug", "corey"], ["LIMIT", 1]]
+  ↳ app/controllers/applicants_controller.rb:38
+  Rendering applicants/show.html.erb within layouts/application
+  [1m[36mCollege Load (0.1ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges" INNER JOIN "applicants_colleges" ON "colleges"."id" = "applicants_colleges"."college_id" WHERE "applicants_colleges"."applicant_id" = ?[0m  [["applicant_id", 1]]
+  ↳ app/views/applicants/show.html.erb:8
+  Rendered applicants/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 24ms (Views: 20.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/applicants/corey" for ::1 at 2020-01-27 22:29:24 -0500
+Processing by ApplicantsController#show as HTML
+  Parameters: {"id"=>"corey"}
+  [1m[36mApplicant Load (0.1ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" WHERE "applicants"."slug" = ? LIMIT ?[0m  [["slug", "corey"], ["LIMIT", 1]]
+  ↳ app/controllers/applicants_controller.rb:38
+  Rendering applicants/show.html.erb within layouts/application
+  [1m[36mCollege Load (0.1ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges" INNER JOIN "applicants_colleges" ON "colleges"."id" = "applicants_colleges"."college_id" WHERE "applicants_colleges"."applicant_id" = ?[0m  [["applicant_id", 1]]
+  ↳ app/views/applicants/show.html.erb:8
+  Rendered applicants/show.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 23ms (Views: 20.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/applicants/corey" for ::1 at 2020-01-27 22:30:13 -0500
+Processing by ApplicantsController#show as HTML
+  Parameters: {"id"=>"corey"}
+  [1m[36mApplicant Load (0.2ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" WHERE "applicants"."slug" = ? LIMIT ?[0m  [["slug", "corey"], ["LIMIT", 1]]
+  ↳ app/controllers/applicants_controller.rb:38
+  Rendering applicants/show.html.erb within layouts/application
+  [1m[36mCollege Load (0.1ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges" INNER JOIN "applicants_colleges" ON "colleges"."id" = "applicants_colleges"."college_id" WHERE "applicants_colleges"."applicant_id" = ?[0m  [["applicant_id", 1]]
+  ↳ app/views/applicants/show.html.erb:8
+  Rendered applicants/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 47ms (Views: 44.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/applicants/1" for ::1 at 2020-01-27 22:30:16 -0500
+Processing by ApplicantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mApplicant Load (0.1ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" WHERE "applicants"."slug" = ? LIMIT ?[0m  [["slug", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/applicants_controller.rb:38
+  [1m[36mApplicant Load (0.1ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" WHERE "applicants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/applicants_controller.rb:38
+  Rendering applicants/show.html.erb within layouts/application
+  [1m[36mCollege Load (0.1ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges" INNER JOIN "applicants_colleges" ON "colleges"."id" = "applicants_colleges"."college_id" WHERE "applicants_colleges"."applicant_id" = ?[0m  [["applicant_id", 1]]
+  ↳ app/views/applicants/show.html.erb:8
+  Rendered applicants/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 23ms (Views: 19.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/applicants/" for ::1 at 2020-01-27 22:30:22 -0500
+Processing by ApplicantsController#index as HTML
+  Rendering applicants/index.html.erb within layouts/application
+  [1m[36mApplicant Load (0.1ms)[0m  [1m[34mSELECT "applicants".* FROM "applicants"[0m
+  ↳ app/views/applicants/index.html.erb:11
+  Rendered applicants/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 18ms (Views: 17.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/applicants/new" for ::1 at 2020-01-27 22:30:25 -0500
+Processing by ApplicantsController#new as HTML
+  Rendering applicants/new.html.erb within layouts/application
+  Rendered applicants/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 20ms (Views: 18.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/applicants" for ::1 at 2020-01-27 22:30:28 -0500
+Processing by ApplicantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"V6ZyQNy9L03udLDXiCQvAYSQsVqH0Ep2a4xwyaZRKgemuQbycG2JnKCc2gp1Vkex8H2I7cLD0MTB7dyEFRJbcg==", "applicant"=>{"name"=>"Bart"}, "commit"=>"Save Applicant"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/applicants_controller.rb:32
+  [1m[36mApplicant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "applicants" WHERE "applicants"."id" IS NOT NULL AND "applicants"."slug" = ? LIMIT ?[0m  [["slug", "bart"], ["LIMIT", 1]]
+  ↳ app/controllers/applicants_controller.rb:32
+  [1m[36mApplicant Create (0.4ms)[0m  [1m[32mINSERT INTO "applicants" ("name", "created_at", "updated_at", "slug") VALUES (?, ?, ?, ?)[0m  [["name", "Bart"], ["created_at", "2020-01-28 03:30:28.595142"], ["updated_at", "2020-01-28 03:30:28.595142"], ["slug", "bart"]]
+  ↳ app/controllers/applicants_controller.rb:32
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/applicants_controller.rb:32
+Redirected to http://localhost:3000/applicants/bart
+Completed 302 Found in 6ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/applicants/bart" for ::1 at 2020-01-27 22:30:28 -0500
+Processing by ApplicantsController#show as HTML
+  Parameters: {"id"=>"bart"}
+  [1m[36mApplicant Load (0.2ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" WHERE "applicants"."slug" = ? LIMIT ?[0m  [["slug", "bart"], ["LIMIT", 1]]
+  ↳ app/controllers/applicants_controller.rb:38
+  Rendering applicants/show.html.erb within layouts/application
+  [1m[36mCollege Load (0.1ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges" INNER JOIN "applicants_colleges" ON "colleges"."id" = "applicants_colleges"."college_id" WHERE "applicants_colleges"."applicant_id" = ?[0m  [["applicant_id", 2]]
+  ↳ app/views/applicants/show.html.erb:8
+  Rendered applicants/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 22ms (Views: 19.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/applicants/bart/colleges" for ::1 at 2020-01-27 22:30:34 -0500
+Processing by CollegesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0vK+wgBcCChdBgs5oD1yWyvEbggpopJ0koitfU0/I4Xsh5H6VEuClp1b7pELGEx9PvB3A7Y059yDD3qXU9bW5w==", "college"=>{"college"=>"Subway", "id"=>"2", "score"=>"10"}, "commit"=>"Create College", "applicant_id"=>"bart"}
+  [1m[36mApplicant Load (0.1ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" WHERE "applicants"."slug" = ? LIMIT ?[0m  [["slug", "bart"], ["LIMIT", 1]]
+  ↳ app/controllers/colleges_controller.rb:13
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/colleges_controller.rb:15
+  [1m[36mCollege Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "colleges" WHERE "colleges"."id" IS NOT NULL AND "colleges"."slug" = ? LIMIT ?[0m  [["slug", "subway"], ["LIMIT", 1]]
+  ↳ app/controllers/colleges_controller.rb:15
+  [1m[36mCollege Create (0.5ms)[0m  [1m[32mINSERT INTO "colleges" ("college", "score", "created_at", "updated_at", "slug") VALUES (?, ?, ?, ?, ?)[0m  [["college", "Subway"], ["score", 10], ["created_at", "2020-01-28 03:30:34.440210"], ["updated_at", "2020-01-28 03:30:34.440210"], ["slug", "subway-f04cc793-41e3-41fb-aefc-c61e31907438"]]
+  ↳ app/controllers/colleges_controller.rb:15
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/colleges_controller.rb:15
+Redirected to http://localhost:3000/applicants/bart
+Completed 302 Found in 7ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/applicants/bart" for ::1 at 2020-01-27 22:30:34 -0500
+Processing by ApplicantsController#show as HTML
+  Parameters: {"id"=>"bart"}
+  [1m[36mApplicant Load (0.1ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" WHERE "applicants"."slug" = ? LIMIT ?[0m  [["slug", "bart"], ["LIMIT", 1]]
+  ↳ app/controllers/applicants_controller.rb:38
+  Rendering applicants/show.html.erb within layouts/application
+  [1m[36mCollege Load (0.1ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges" INNER JOIN "applicants_colleges" ON "colleges"."id" = "applicants_colleges"."college_id" WHERE "applicants_colleges"."applicant_id" = ?[0m  [["applicant_id", 2]]
+  ↳ app/views/applicants/show.html.erb:8
+  Rendered applicants/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 22ms (Views: 19.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/applicants/" for ::1 at 2020-01-27 22:30:43 -0500
+Processing by ApplicantsController#index as HTML
+  Rendering applicants/index.html.erb within layouts/application
+  [1m[36mApplicant Load (0.1ms)[0m  [1m[34mSELECT "applicants".* FROM "applicants"[0m
+  ↳ app/views/applicants/index.html.erb:11
+  Rendered applicants/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 19ms (Views: 18.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/applicants/corey" for ::1 at 2020-01-27 22:30:45 -0500
+Processing by ApplicantsController#show as HTML
+  Parameters: {"id"=>"corey"}
+  [1m[36mApplicant Load (0.2ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" WHERE "applicants"."slug" = ? LIMIT ?[0m  [["slug", "corey"], ["LIMIT", 1]]
+  ↳ app/controllers/applicants_controller.rb:38
+  Rendering applicants/show.html.erb within layouts/application
+  [1m[36mCollege Load (0.1ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges" INNER JOIN "applicants_colleges" ON "colleges"."id" = "applicants_colleges"."college_id" WHERE "applicants_colleges"."applicant_id" = ?[0m  [["applicant_id", 1]]
+  ↳ app/views/applicants/show.html.erb:8
+  Rendered applicants/show.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 80ms (Views: 33.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/colleges/" for ::1 at 2020-01-27 22:32:11 -0500
+Processing by CollegesController#index as HTML
+  [1m[36mCollege Load (0.1ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges"[0m
+  ↳ app/controllers/colleges_controller.rb:55
+  [1m[36mHABTM_Applicants Load (0.1ms)[0m  [1m[34mSELECT "applicants_colleges".* FROM "applicants_colleges" WHERE "applicants_colleges"."college_id" IN (?, ?, ?, ?, ?)[0m  [["college_id", 1], ["college_id", 2], ["college_id", 3], ["college_id", 4], ["college_id", 5]]
+  ↳ app/controllers/colleges_controller.rb:55
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/colleges/" for ::1 at 2020-01-27 22:32:46 -0500
+Processing by CollegesController#index as HTML
+  [1m[36mCollege Load (0.2ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges"[0m
+  ↳ app/controllers/colleges_controller.rb:55
+  [1m[36mHABTM_Applicants Load (0.2ms)[0m  [1m[34mSELECT "applicants_colleges".* FROM "applicants_colleges" WHERE "applicants_colleges"."college_id" IN (?, ?, ?, ?, ?)[0m  [["college_id", 1], ["college_id", 2], ["college_id", 3], ["college_id", 4], ["college_id", 5]]
+  ↳ app/controllers/colleges_controller.rb:55
+Completed 200 OK in 20ms (Views: 19.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/applicants/corey/colleges" for ::1 at 2020-01-27 22:32:53 -0500
+Processing by CollegesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LNjD5C4rDsJTfxuL6obznksRtSAS/dhYuWTc05HgpKESrezcejyEfJMi/iNBo824XiWsK41rrfCo4ws5jwlRww==", "college"=>{"college"=>"Subway", "id"=>"1", "score"=>"10"}, "commit"=>"Create College", "applicant_id"=>"corey"}
+  [1m[36mApplicant Load (0.2ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" WHERE "applicants"."slug" = ? LIMIT ?[0m  [["slug", "corey"], ["LIMIT", 1]]
+  ↳ app/controllers/colleges_controller.rb:13
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/colleges_controller.rb:15
+  [1m[36mCollege Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "colleges" WHERE "colleges"."id" IS NOT NULL AND "colleges"."slug" = ? LIMIT ?[0m  [["slug", "subway"], ["LIMIT", 1]]
+  ↳ app/controllers/colleges_controller.rb:15
+  [1m[36mCollege Create (0.5ms)[0m  [1m[32mINSERT INTO "colleges" ("college", "score", "created_at", "updated_at", "slug") VALUES (?, ?, ?, ?, ?)[0m  [["college", "Subway"], ["score", 10], ["created_at", "2020-01-28 03:32:53.575539"], ["updated_at", "2020-01-28 03:32:53.575539"], ["slug", "subway-b5b088fd-98a3-4b59-89ff-96ce0608d52d"]]
+  ↳ app/controllers/colleges_controller.rb:15
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/colleges_controller.rb:15
+Redirected to http://localhost:3000/applicants/corey
+Completed 302 Found in 7ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/applicants/corey" for ::1 at 2020-01-27 22:32:53 -0500
+Processing by ApplicantsController#show as HTML
+  Parameters: {"id"=>"corey"}
+  [1m[36mApplicant Load (0.2ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" WHERE "applicants"."slug" = ? LIMIT ?[0m  [["slug", "corey"], ["LIMIT", 1]]
+  ↳ app/controllers/applicants_controller.rb:38
+  Rendering applicants/show.html.erb within layouts/application
+  [1m[36mCollege Load (0.1ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges" INNER JOIN "applicants_colleges" ON "colleges"."id" = "applicants_colleges"."college_id" WHERE "applicants_colleges"."applicant_id" = ?[0m  [["applicant_id", 1]]
+  ↳ app/views/applicants/show.html.erb:8
+  Rendered applicants/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 21ms (Views: 18.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/colleges/" for ::1 at 2020-01-27 22:33:00 -0500
+Processing by CollegesController#index as HTML
+  [1m[36mCollege Load (0.2ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges"[0m
+  ↳ app/controllers/colleges_controller.rb:55
+  [1m[36mHABTM_Applicants Load (0.1ms)[0m  [1m[34mSELECT "applicants_colleges".* FROM "applicants_colleges" WHERE "applicants_colleges"."college_id" IN (?, ?, ?, ?, ?, ?)[0m  [["college_id", 1], ["college_id", 2], ["college_id", 3], ["college_id", 4], ["college_id", 5], ["college_id", 6]]
+  ↳ app/controllers/colleges_controller.rb:55
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/applicants/corey" for ::1 at 2020-01-27 22:33:25 -0500
+Processing by ApplicantsController#show as HTML
+  Parameters: {"id"=>"corey"}
+  [1m[36mApplicant Load (0.1ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" WHERE "applicants"."slug" = ? LIMIT ?[0m  [["slug", "corey"], ["LIMIT", 1]]
+  ↳ app/controllers/applicants_controller.rb:38
+  Rendering applicants/show.html.erb within layouts/application
+  [1m[36mCollege Load (0.1ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges" INNER JOIN "applicants_colleges" ON "colleges"."id" = "applicants_colleges"."college_id" WHERE "applicants_colleges"."applicant_id" = ?[0m  [["applicant_id", 1]]
+  ↳ app/views/applicants/show.html.erb:8
+  Rendered applicants/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 21ms (Views: 18.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/applicants/" for ::1 at 2020-01-27 22:33:40 -0500
+Processing by ApplicantsController#index as HTML
+  Rendering applicants/index.html.erb within layouts/application
+  [1m[36mApplicant Load (0.2ms)[0m  [1m[34mSELECT "applicants".* FROM "applicants"[0m
+  ↳ app/views/applicants/index.html.erb:11
+  Rendered applicants/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 21ms (Views: 19.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/applicants/new" for ::1 at 2020-01-27 22:33:42 -0500
+Processing by ApplicantsController#new as HTML
+  Rendering applicants/new.html.erb within layouts/application
+  Rendered applicants/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 20ms (Views: 19.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/applicants" for ::1 at 2020-01-27 22:33:45 -0500
+Processing by ApplicantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uRKLWAdVJ8XPg6Ijv8PT2HU13rxYb6u7nXkHAiK11gJIDf/qq4WBFIFryP5CsbtoAdjnCx18MQk3GKtPkfandw==", "applicant"=>{"name"=>"Murr"}, "commit"=>"Save Applicant"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/applicants_controller.rb:32
+  [1m[36mApplicant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "applicants" WHERE "applicants"."id" IS NOT NULL AND "applicants"."slug" = ? LIMIT ?[0m  [["slug", "murr"], ["LIMIT", 1]]
+  ↳ app/controllers/applicants_controller.rb:32
+  [1m[36mApplicant Create (0.4ms)[0m  [1m[32mINSERT INTO "applicants" ("name", "created_at", "updated_at", "slug") VALUES (?, ?, ?, ?)[0m  [["name", "Murr"], ["created_at", "2020-01-28 03:33:45.531033"], ["updated_at", "2020-01-28 03:33:45.531033"], ["slug", "murr"]]
+  ↳ app/controllers/applicants_controller.rb:32
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/applicants_controller.rb:32
+Redirected to http://localhost:3000/applicants/murr
+Completed 302 Found in 6ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/applicants/murr" for ::1 at 2020-01-27 22:33:45 -0500
+Processing by ApplicantsController#show as HTML
+  Parameters: {"id"=>"murr"}
+  [1m[36mApplicant Load (0.2ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" WHERE "applicants"."slug" = ? LIMIT ?[0m  [["slug", "murr"], ["LIMIT", 1]]
+  ↳ app/controllers/applicants_controller.rb:38
+  Rendering applicants/show.html.erb within layouts/application
+  [1m[36mCollege Load (0.1ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges" INNER JOIN "applicants_colleges" ON "colleges"."id" = "applicants_colleges"."college_id" WHERE "applicants_colleges"."applicant_id" = ?[0m  [["applicant_id", 3]]
+  ↳ app/views/applicants/show.html.erb:8
+  Rendered applicants/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 22ms (Views: 19.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/applicants/murr/colleges" for ::1 at 2020-01-27 22:33:51 -0500
+Processing by CollegesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Gvr+apqlVqqnC+2F/oADnFjvo3XzS/FnAaa+AA5ya1Ykj9FSzrLcFGdWCC1VpT26Tdu6fmzdhM8QIWnqEJueNA==", "college"=>{"college"=>"Subway", "id"=>"3", "score"=>"10"}, "commit"=>"Create College", "applicant_id"=>"murr"}
+  [1m[36mApplicant Load (0.2ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" WHERE "applicants"."slug" = ? LIMIT ?[0m  [["slug", "murr"], ["LIMIT", 1]]
+  ↳ app/controllers/colleges_controller.rb:13
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/colleges_controller.rb:15
+  [1m[36mCollege Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "colleges" WHERE "colleges"."id" IS NOT NULL AND "colleges"."slug" = ? LIMIT ?[0m  [["slug", "subway"], ["LIMIT", 1]]
+  ↳ app/controllers/colleges_controller.rb:15
+  [1m[36mCollege Create (0.5ms)[0m  [1m[32mINSERT INTO "colleges" ("college", "score", "created_at", "updated_at", "slug") VALUES (?, ?, ?, ?, ?)[0m  [["college", "Subway"], ["score", 10], ["created_at", "2020-01-28 03:33:51.012593"], ["updated_at", "2020-01-28 03:33:51.012593"], ["slug", "subway-67bee0d9-1bae-4cfb-bac9-6171cb448500"]]
+  ↳ app/controllers/colleges_controller.rb:15
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/colleges_controller.rb:15
+Redirected to http://localhost:3000/applicants/murr
+Completed 302 Found in 7ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/applicants/murr" for ::1 at 2020-01-27 22:33:51 -0500
+Processing by ApplicantsController#show as HTML
+  Parameters: {"id"=>"murr"}
+  [1m[36mApplicant Load (0.2ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" WHERE "applicants"."slug" = ? LIMIT ?[0m  [["slug", "murr"], ["LIMIT", 1]]
+  ↳ app/controllers/applicants_controller.rb:38
+  Rendering applicants/show.html.erb within layouts/application
+  [1m[36mCollege Load (0.1ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges" INNER JOIN "applicants_colleges" ON "colleges"."id" = "applicants_colleges"."college_id" WHERE "applicants_colleges"."applicant_id" = ?[0m  [["applicant_id", 3]]
+  ↳ app/views/applicants/show.html.erb:8
+  Rendered applicants/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 22ms (Views: 19.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/colleges/" for ::1 at 2020-01-27 22:33:55 -0500
+Processing by CollegesController#index as HTML
+  [1m[36mCollege Load (0.2ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges"[0m
+  ↳ app/controllers/colleges_controller.rb:55
+  [1m[36mHABTM_Applicants Load (0.2ms)[0m  [1m[34mSELECT "applicants_colleges".* FROM "applicants_colleges" WHERE "applicants_colleges"."college_id" IN (?, ?, ?, ?, ?, ?, ?)[0m  [["college_id", 1], ["college_id", 2], ["college_id", 3], ["college_id", 4], ["college_id", 5], ["college_id", 6], ["college_id", 7]]
+  ↳ app/controllers/colleges_controller.rb:55
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/applicants/murr/colleges" for ::1 at 2020-01-27 22:35:20 -0500
+Processing by CollegesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p91HpfJ12ydJe5LQGRJcmqmmNVZ1ilRjL4MKyz5D2NyZqGidpmJRmYkmd3iyN2K8vJIsXeocIcs+BN0hIKotvg==", "college"=>{"college"=>"Art", "id"=>"3", "score"=>"4"}, "commit"=>"Create College", "applicant_id"=>"murr"}
+  [1m[36mApplicant Load (0.2ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" WHERE "applicants"."slug" = ? LIMIT ?[0m  [["slug", "murr"], ["LIMIT", 1]]
+  ↳ app/controllers/colleges_controller.rb:13
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/colleges_controller.rb:15
+  [1m[36mCollege Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "colleges" WHERE "colleges"."id" IS NOT NULL AND "colleges"."slug" = ? LIMIT ?[0m  [["slug", "art"], ["LIMIT", 1]]
+  ↳ app/controllers/colleges_controller.rb:15
+  [1m[36mCollege Create (0.4ms)[0m  [1m[32mINSERT INTO "colleges" ("college", "score", "created_at", "updated_at", "slug") VALUES (?, ?, ?, ?, ?)[0m  [["college", "Art"], ["score", 4], ["created_at", "2020-01-28 03:35:20.130988"], ["updated_at", "2020-01-28 03:35:20.130988"], ["slug", "art"]]
+  ↳ app/controllers/colleges_controller.rb:15
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/colleges_controller.rb:15
+Redirected to http://localhost:3000/applicants/murr
+Completed 302 Found in 7ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/applicants/murr" for ::1 at 2020-01-27 22:35:20 -0500
+Processing by ApplicantsController#show as HTML
+  Parameters: {"id"=>"murr"}
+  [1m[36mApplicant Load (0.2ms)[0m  [1m[34mSELECT  "applicants".* FROM "applicants" WHERE "applicants"."slug" = ? LIMIT ?[0m  [["slug", "murr"], ["LIMIT", 1]]
+  ↳ app/controllers/applicants_controller.rb:38
+  Rendering applicants/show.html.erb within layouts/application
+  [1m[36mCollege Load (0.2ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges" INNER JOIN "applicants_colleges" ON "colleges"."id" = "applicants_colleges"."college_id" WHERE "applicants_colleges"."applicant_id" = ?[0m  [["applicant_id", 3]]
+  ↳ app/views/applicants/show.html.erb:8
+  Rendered applicants/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 37ms (Views: 33.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/colleges/" for ::1 at 2020-01-27 22:35:26 -0500
+Processing by CollegesController#index as HTML
+  [1m[36mCollege Load (0.2ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges"[0m
+  ↳ app/controllers/colleges_controller.rb:55
+  [1m[36mHABTM_Applicants Load (0.2ms)[0m  [1m[34mSELECT "applicants_colleges".* FROM "applicants_colleges" WHERE "applicants_colleges"."college_id" IN (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["college_id", 1], ["college_id", 2], ["college_id", 3], ["college_id", 4], ["college_id", 5], ["college_id", 6], ["college_id", 7], ["college_id", 8]]
+  ↳ app/controllers/colleges_controller.rb:55
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.3ms)
+
+

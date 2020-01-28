@@ -11809,3 +11809,20 @@ Processing by CollegesController#index as HTML
 Completed 200 OK in 33ms (Views: 29.3ms | ActiveRecord: 0.8ms)
 
 
+Started GET "/colleges/" for ::1 at 2020-01-27 20:09:32 -0500
+Processing by CollegesController#index as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ActiveRecord::ConfigurationError - Can't join 'College' to association named 'applicant'; perhaps you misspelled it?:
+  app/controllers/colleges_controller.rb:45:in `index'
+
+Started POST "/__better_errors/6176413292ebad9e/variables" for ::1 at 2020-01-27 20:09:32 -0500
+Started GET "/colleges/" for ::1 at 2020-01-27 20:09:52 -0500
+Processing by CollegesController#index as HTML
+  [1m[36mCollege Load (0.1ms)[0m  [1m[34mSELECT "colleges".* FROM "colleges"[0m
+  ↳ app/controllers/colleges_controller.rb:50
+Completed 200 OK in 50ms (Views: 8.5ms | ActiveRecord: 0.8ms)
+
+

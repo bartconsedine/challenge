@@ -42,7 +42,8 @@ class CollegesController < ApplicationController
 #   end
 
   def index
-    # @collegeJoin = College.joins(applicant)
+    puts College.joins(:applicants).to_sql
+    # @collegeJoin = College.joins(:applicant)
     @colleges = College.all
 
 

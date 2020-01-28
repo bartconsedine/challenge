@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_27_204539) do
+ActiveRecord::Schema.define(version: 2020_01_28_032744) do
 
   create_table "applicants", force: :cascade do |t|
     t.string "name"
@@ -20,13 +20,20 @@ ActiveRecord::Schema.define(version: 2020_01_27_204539) do
     t.index ["slug"], name: "index_applicants_on_slug", unique: true
   end
 
+  create_table "applicants_colleges", id: false, force: :cascade do |t|
+    t.integer "college_id", null: false
+    t.integer "applicant_id", null: false
+  end
+
   create_table "colleges", force: :cascade do |t|
     t.string "college"
     t.integer "score"
     t.integer "applicant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
     t.index ["applicant_id"], name: "index_colleges_on_applicant_id"
+    t.index ["slug"], name: "index_colleges_on_slug", unique: true
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|

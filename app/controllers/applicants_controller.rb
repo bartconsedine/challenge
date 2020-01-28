@@ -25,7 +25,7 @@ class ApplicantsController < ApplicationController
 #   end
 
   def create
-    puts params.id
+    # puts params.id
     @applicant = Applicant.new(applicant_params)
     
 
@@ -58,7 +58,7 @@ class ApplicantsController < ApplicationController
 
     puts @applicant.inspect
 
-    render json: both
+    # render json: both
   end
 
   private

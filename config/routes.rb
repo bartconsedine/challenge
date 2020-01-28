@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   resources :applicants do
     resources :colleges
   end
+  resources :colleges do
+    resources :applicants
+  end
 end
